@@ -37,7 +37,6 @@ export default function StarDustCanvas() {
 
         let animationFrameId: number;
         let stars: Star[] = [];
-        const STAR_COUNT = 1000; // Total stars across the screen
 
         const resizeCanvas = () => {
             const { innerWidth, innerHeight } = window;
@@ -49,13 +48,15 @@ export default function StarDustCanvas() {
             canvas.style.height = `${innerHeight}px`;
             ctx.scale(dpr, dpr);
 
-            // Re-initialize stars on resize
-            initStars(innerWidth, innerHeight);
+            // Re-initialize stars on resize with responsive count
+            // Mobile: 400, Desktop: 1000
+            const starCount = innerWidth < 768 ? 400 : 1000;
+            initStars(innerWidth, innerHeight, starCount);
         };
 
-        const initStars = (width: number, height: number) => {
+        const initStars = (width: number, height: number, count: number) => {
             stars = [];
-            for (let i = 0; i < STAR_COUNT; i++) {
+            for (let i = 0; i < count; i++) {
                 stars.push({
                     x: Math.random() * width,
                     y: Math.random() * height,

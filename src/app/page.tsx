@@ -118,6 +118,8 @@ export default function LandingPage() {
                                 src="/knull.png"
                                 alt="KNULL Logo"
                                 fill
+                                priority
+                                sizes="40px"
                                 className="object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
                             />
                         </div>
@@ -167,152 +169,155 @@ export default function LandingPage() {
                     <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
                         {mounted && (
                             <>
-                                {/* 3D Perspective Container */}
-                                <div className="relative w-[800px] h-[800px] transform-3d" style={{ transform: 'perspective(1000px) rotateX(60deg) scale(0.8)' }}>
+                                {/* 3D Perspective Container - Scaled for Mobile */}
+                                <div className="scale-[0.45] md:scale-100 origin-center transition-transform duration-500">
+                                    <div className="relative w-[800px] h-[800px] transform-3d" style={{ transform: 'perspective(1000px) rotateX(60deg) scale(0.8)' }}>
 
-                                    {/* Ring System */}
-                                    <div className="absolute inset-0 flex items-center justify-center transform-3d transform-gpu">
-                                        {/* Outer Mechanical Ring - Clockwise */}
-                                        <div className="absolute w-[950px] h-[950px] rounded-full border-[3px] border-dashed border-blue-500/40 animate-spin-slow shadow-[0_0_100px_rgba(59,130,246,0.3)]" style={{ animationDuration: '30s' }} />
-                                        <div className="absolute w-[930px] h-[930px] rounded-full border-[2px] border-blue-500/20 animate-spin-slow" style={{ animationDuration: '30s' }} />
+                                        {/* Ring System */}
+                                        <div className="absolute inset-0 flex items-center justify-center transform-3d transform-gpu">
+                                            {/* Outer Mechanical Ring - Clockwise */}
+                                            <div className="absolute w-[950px] h-[950px] rounded-full border-[3px] border-dashed border-blue-500/40 animate-spin-slow shadow-[0_0_100px_rgba(59,130,246,0.3)]" style={{ animationDuration: '30s' }} />
+                                            <div className="absolute w-[930px] h-[930px] rounded-full border-[2px] border-blue-500/20 animate-spin-slow" style={{ animationDuration: '30s' }} />
 
-                                        {/* Middle Energy Ring - Counter-Clockwise */}
-                                        <div className="absolute w-[700px] h-[700px] rounded-full border-[4px] border-cyan-500/30 border-t-cyan-400/80 border-l-transparent animate-spin-reverse-slow shadow-[0_0_80px_rgba(6,182,212,0.25)]" style={{ animationDuration: '20s' }} />
-                                        <div className="absolute w-[680px] h-[680px] rounded-full border-[2px] border-dashed border-cyan-500/30 animate-spin-reverse-slow" style={{ animationDuration: '25s' }} />
+                                            {/* Middle Energy Ring - Counter-Clockwise */}
+                                            <div className="absolute w-[700px] h-[700px] rounded-full border-[4px] border-cyan-500/30 border-t-cyan-400/80 border-l-transparent animate-spin-reverse-slow shadow-[0_0_80px_rgba(6,182,212,0.25)]" style={{ animationDuration: '20s' }} />
+                                            <div className="absolute w-[680px] h-[680px] rounded-full border-[2px] border-dashed border-cyan-500/30 animate-spin-reverse-slow" style={{ animationDuration: '25s' }} />
 
-                                        {/* NEW: Electric Violet Galaxy Ring (Accretion Disk) */}
-                                        <div className="absolute w-[520px] h-[520px] rounded-full border-[6px] border-violet-500/30 border-b-violet-400/90 border-l-transparent animate-spin-slow shadow-[0_0_120px_rgba(139,92,246,0.4)] blur-[1px]" style={{ animationDuration: '15s' }} />
-                                        <div className="absolute w-[500px] h-[500px] rounded-full border-[2px] border-dashed border-violet-400/40 animate-spin-reverse-slow shadow-[0_0_60px_rgba(139,92,246,0.2)]" style={{ animationDuration: '18s' }} />
+                                            {/* NEW: Electric Violet Galaxy Ring (Accretion Disk) */}
+                                            <div className="absolute w-[520px] h-[520px] rounded-full border-[6px] border-violet-500/30 border-b-violet-400/90 border-l-transparent animate-spin-slow shadow-[0_0_120px_rgba(139,92,246,0.4)] blur-[1px]" style={{ animationDuration: '15s' }} />
+                                            <div className="absolute w-[500px] h-[500px] rounded-full border-[2px] border-dashed border-violet-400/40 animate-spin-reverse-slow shadow-[0_0_60px_rgba(139,92,246,0.2)]" style={{ animationDuration: '18s' }} />
 
-                                        {/* Inner Core Ring - Fast Spin */}
-                                        <div className="absolute w-[400px] h-[400px] rounded-full border-[5px] border-indigo-500/40 border-b-indigo-400/90 border-r-transparent animate-spin-slow shadow-[0_0_80px_rgba(99,102,241,0.4)]" style={{ animationDuration: '10s' }} />
+                                            {/* Inner Core Ring - Fast Spin */}
+                                            <div className="absolute w-[400px] h-[400px] rounded-full border-[5px] border-indigo-500/40 border-b-indigo-400/90 border-r-transparent animate-spin-slow shadow-[0_0_80px_rgba(99,102,241,0.4)]" style={{ animationDuration: '10s' }} />
 
-                                        {/* Scanning Pulse Ring */}
-                                        <div className="absolute w-[400px] h-[400px] rounded-full border-[2px] border-cyan-400/60 animate-ping" style={{ animationDuration: '4s' }} />
-                                    </div>
+                                            {/* Scanning Pulse Ring */}
+                                            <div className="absolute w-[400px] h-[400px] rounded-full border-[2px] border-cyan-400/60 animate-ping" style={{ animationDuration: '4s' }} />
+                                        </div>
 
-                                    {/* The Singularity / Event Horizon (Central Core) */}
-                                    <div className="absolute inset-0 flex items-center justify-center transform-3d" style={{ transform: 'translateZ(50px)' }}>
-                                        <div className="w-52 h-52 rounded-full bg-gradient-to-br from-blue-400 via-indigo-600 via-violet-500/30 to-violet-800 animate-pulse-glow blur-lg opacity-90 shadow-[0_0_120px_rgba(59,130,246,0.6),0_0_150px_rgba(139,92,246,0.3)]" />
-                                        <div className="absolute w-36 h-36 rounded-full bg-white blur-3xl opacity-50" />
-                                        <div className="absolute w-72 h-72 rounded-full border-[2px] border-white/20 animate-ping opacity-30" style={{ animationDuration: '3s' }} />
-                                        {/* Central Violet Core Glow */}
-                                        <div className="absolute w-20 h-20 rounded-full bg-violet-400/20 blur-2xl animate-pulse" />
-                                    </div>
+                                        {/* The Singularity / Event Horizon (Central Core) */}
+                                        <div className="absolute inset-0 flex items-center justify-center transform-3d" style={{ transform: 'translateZ(50px)' }}>
+                                            <div className="w-52 h-52 rounded-full bg-gradient-to-br from-blue-400 via-indigo-600 via-violet-500/30 to-violet-800 animate-pulse-glow blur-lg opacity-90 shadow-[0_0_120px_rgba(59,130,246,0.6),0_0_150px_rgba(139,92,246,0.3)]" />
+                                            <div className="absolute w-36 h-36 rounded-full bg-white blur-3xl opacity-50" />
+                                            <div className="absolute w-72 h-72 rounded-full border-[2px] border-white/20 animate-ping opacity-30" style={{ animationDuration: '3s' }} />
+                                            {/* Central Violet Core Glow */}
+                                            <div className="absolute w-20 h-20 rounded-full bg-violet-400/20 blur-2xl animate-pulse" />
+                                        </div>
 
-                                    {/* Data Packet Ingestion - 360 Radius to Core with Acceleration - Query Bubbles */}
-                                    {[...Array(8)].map((_, i) => {
-                                        const queries = [
-                                            { text: "Analyze VPC Security", avatar: "/profile_1.png", color: "violet" },
-                                            { text: "Optimize SQL Query", avatar: "/profile_2.png", color: "blue" },
-                                            { text: "Summarize Document", avatar: "/profile_3.png", color: "emerald" },
-                                            { text: "Deploy to Production", avatar: "/profile_4.png", color: "cyan" },
-                                            { text: "Monitor CPU Load", avatar: "/profile_5.png", color: "indigo" },
-                                            { text: "Debug Python App", avatar: "/profile_6.png", color: "amber" },
-                                            { text: "Generate Blog Post", avatar: "/profile_1.png", color: "fuchsia" },
-                                            { text: "Refactor Service", avatar: "/profile_2.png", color: "neutral" },
-                                        ];
-                                        const query = queries[i % queries.length];
+                                        {/* Data Packet Ingestion - 360 Radius to Core with Acceleration - Query Bubbles */}
+                                        {[...Array(8)].map((_, i) => {
+                                            const queries = [
+                                                { text: "Analyze VPC Security", avatar: "/profile_1.png", color: "violet" },
+                                                { text: "Optimize SQL Query", avatar: "/profile_2.png", color: "blue" },
+                                                { text: "Summarize Document", avatar: "/profile_3.png", color: "emerald" },
+                                                { text: "Deploy to Production", avatar: "/profile_4.png", color: "cyan" },
+                                                { text: "Monitor CPU Load", avatar: "/profile_5.png", color: "indigo" },
+                                                { text: "Debug Python App", avatar: "/profile_6.png", color: "amber" },
+                                                { text: "Generate Blog Post", avatar: "/profile_1.png", color: "fuchsia" },
+                                                { text: "Refactor Service", avatar: "/profile_2.png", color: "neutral" },
+                                            ];
+                                            const query = queries[i % queries.length];
 
-                                        // 360-degree angular distribution
-                                        const angle = (i * (360 / 8)) * (Math.PI / 180);
-                                        const baseRadius = 1200;
-                                        const variation = Math.sin(i * 3) * 200;
-                                        const distance = baseRadius + variation;
+                                            // 360-degree angular distribution
+                                            const angle = (i * (360 / 8)) * (Math.PI / 180);
+                                            const baseRadius = 1200;
+                                            const variation = Math.sin(i * 3) * 200;
+                                            const distance = baseRadius + variation;
 
-                                        const startX = Math.cos(angle) * distance;
-                                        const startY = Math.sin(angle) * distance;
-                                        const angleDeg = (i * (360 / 8));
+                                            const startX = Math.cos(angle) * distance;
+                                            const startY = Math.sin(angle) * distance;
+                                            const angleDeg = (i * (360 / 8));
 
-                                        return (
-                                            <div
-                                                key={i}
-                                                className="absolute top-1/2 left-1/2 animate-suck-in-accelerated opacity-0"
-                                                style={{
-                                                    // @ts-ignore
-                                                    '--startX': `${startX}px`,
-                                                    // @ts-ignore
-                                                    '--startY': `${startY}px`,
-                                                    marginLeft: '-60px', marginTop: '-20px',
-                                                    animationDelay: `${i * 1.2}s`,
-                                                    animationDuration: `${4 + (i % 2)}s`,
-                                                    zIndex: 20
-                                                }}
-                                            >
-                                                <div className="relative group flex items-center" style={{ transform: `rotate(${angleDeg}deg)` }}>
-                                                    {/* Comet Tail - Adjusted for bubble width */}
-                                                    <div className="absolute left-10 w-24 h-[1px] bg-gradient-to-r from-violet-500/40 to-transparent blur-[1.5px]" />
+                                            return (
+                                                <div
+                                                    key={i}
+                                                    className="absolute top-1/2 left-1/2 animate-suck-in-accelerated opacity-0"
+                                                    style={{
+                                                        // @ts-ignore
+                                                        '--startX': `${startX}px`,
+                                                        // @ts-ignore
+                                                        '--startY': `${startY}px`,
+                                                        marginLeft: '-60px', marginTop: '-20px',
+                                                        animationDelay: `${i * 1.2}s`,
+                                                        animationDuration: `${4 + (i % 2)}s`,
+                                                        zIndex: 20
+                                                    }}
+                                                >
+                                                    <div className="relative group flex items-center" style={{ transform: `rotate(${angleDeg}deg)` }}>
+                                                        {/* Comet Tail - Adjusted for bubble width */}
+                                                        <div className="absolute left-10 w-24 h-[1px] bg-gradient-to-r from-violet-500/40 to-transparent blur-[1.5px]" />
 
-                                                    {/* Query Bubble with inverse rotation */}
-                                                    <div className="relative" style={{ transform: `rotate(-${angleDeg}deg)` }}>
-                                                        <div className="px-4 py-2 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md shadow-[0_0_20px_rgba(139,92,246,0.1)] flex items-center gap-3 min-w-[140px] group-hover:border-violet-500/50 transition-colors">
-                                                            <div className="text-[10px] font-medium text-neutral-300 whitespace-nowrap">{query.text}</div>
+                                                        {/* Query Bubble with inverse rotation */}
+                                                        <div className="relative" style={{ transform: `rotate(-${angleDeg}deg)` }}>
+                                                            <div className="px-4 py-2 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md shadow-[0_0_20px_rgba(139,92,246,0.1)] flex items-center gap-3 min-w-[140px] group-hover:border-violet-500/50 transition-colors">
+                                                                <div className="text-[10px] font-medium text-neutral-300 whitespace-nowrap">{query.text}</div>
 
-                                                            {/* User Profile Photo on top right-ish */}
-                                                            <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-neutral-900 border border-white/20 overflow-hidden shadow-xl">
-                                                                <Image
-                                                                    src={query.avatar}
-                                                                    alt="User"
-                                                                    fill
-                                                                    className="object-cover"
-                                                                />
+                                                                {/* User Profile Photo on top right-ish */}
+                                                                <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-neutral-900 border border-white/20 overflow-hidden shadow-xl">
+                                                                    <Image
+                                                                        src={query.avatar}
+                                                                        alt="User"
+                                                                        fill
+                                                                        sizes="28px"
+                                                                        className="object-cover"
+                                                                    />
+                                                                </div>
+
+                                                                {/* Inner Glow */}
+                                                                <div className="absolute inset-0 rounded-xl bg-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                                             </div>
-
-                                                            {/* Inner Glow */}
-                                                            <div className="absolute inset-0 rounded-xl bg-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                                         </div>
                                                     </div>
                                                 </div>
+                                            );
+                                        })}
+                                    </div>
+
+                                    {/* Floating Metadata Labels */}
+                                    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                                        {[
+                                            { text: "CORE_AUTH_VALID", top: "25%", left: "15%" },
+                                            { text: "PKT_INGRESS_1975", top: "65%", left: "80%" },
+                                            { text: "ENVOY_DATA_PLANE", top: "15%", left: "75%" },
+                                            { text: "EXTPROC_ACTIVE", top: "80%", left: "20%" },
+                                        ].map((label, i) => (
+                                            <div
+                                                key={i}
+                                                className="absolute text-[8px] font-mono text-cyan-500/60 border border-cyan-500/20 px-2 py-0.5 rounded bg-cyan-950/20 backdrop-blur-sm animate-float-metadata"
+                                                style={{
+                                                    top: label.top,
+                                                    left: label.left,
+                                                    animationDelay: `${i * 1.2}s`,
+                                                }}
+                                            >
+                                                {label.text}
                                             </div>
-                                        );
-                                    })}
-                                </div>
+                                        ))}
+                                    </div>
 
-                                {/* Floating Metadata Labels */}
-                                <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                                    {[
-                                        { text: "CORE_AUTH_VALID", top: "25%", left: "15%" },
-                                        { text: "PKT_INGRESS_1975", top: "65%", left: "80%" },
-                                        { text: "ENVOY_DATA_PLANE", top: "15%", left: "75%" },
-                                        { text: "EXTPROC_ACTIVE", top: "80%", left: "20%" },
-                                    ].map((label, i) => (
-                                        <div
-                                            key={i}
-                                            className="absolute text-[8px] font-mono text-cyan-500/60 border border-cyan-500/20 px-2 py-0.5 rounded bg-cyan-950/20 backdrop-blur-sm animate-float-metadata"
-                                            style={{
-                                                top: label.top,
-                                                left: label.left,
-                                                animationDelay: `${i * 1.2}s`,
-                                            }}
-                                        >
-                                            {label.text}
-                                        </div>
-                                    ))}
-                                </div>
+                                    {/* Additional 3D Atmosphere - Data Beams */}
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
+                                        {[...Array(8)].map((_, i) => (
+                                            <div
+                                                key={i}
+                                                className="absolute w-px h-64 bg-gradient-to-t from-transparent via-cyan-400 to-transparent animate-rise-fade"
+                                                style={{
+                                                    left: `${15 + i * 10}%`,
+                                                    top: `${20 + (i * 13) % 40}%`,
+                                                    animationDelay: `${i * 0.7}s`,
+                                                    animationDuration: `${5 + i}s`,
+                                                }}
+                                            />
+                                        ))}
+                                    </div>
 
-                                {/* Additional 3D Atmosphere - Data Beams */}
-                                <div className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none">
-                                    {[...Array(8)].map((_, i) => (
-                                        <div
-                                            key={i}
-                                            className="absolute w-px h-64 bg-gradient-to-t from-transparent via-cyan-400 to-transparent animate-rise-fade"
-                                            style={{
-                                                left: `${15 + i * 10}%`,
-                                                top: `${20 + (i * 13) % 40}%`,
-                                                animationDelay: `${i * 0.7}s`,
-                                                animationDuration: `${5 + i}s`,
-                                            }}
-                                        />
-                                    ))}
+                                    {/* Background Grid - Depth */}
+                                    <div className="absolute inset-0 opacity-60 pointer-events-none" style={{
+                                        backgroundImage: `radial-gradient(circle at center, transparent 0%, #000 85%), linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)`,
+                                        backgroundSize: '100% 100%, 60px 60px, 60px 60px',
+                                        transform: 'perspective(500px) rotateX(60deg) scale(2) translateY(-20%)',
+                                        maskImage: 'linear-gradient(to bottom, black 5%, transparent 70%)'
+                                    }} />
                                 </div>
-
-                                {/* Background Grid - Depth */}
-                                <div className="absolute inset-0 opacity-60 pointer-events-none" style={{
-                                    backgroundImage: `radial-gradient(circle at center, transparent 0%, #000 85%), linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px)`,
-                                    backgroundSize: '100% 100%, 60px 60px, 60px 60px',
-                                    transform: 'perspective(500px) rotateX(60deg) scale(2) translateY(-20%)',
-                                    maskImage: 'linear-gradient(to bottom, black 5%, transparent 70%)'
-                                }} />
                             </>
                         )}
                     </div>
@@ -333,7 +338,7 @@ export default function LandingPage() {
                             <Sparkles className="w-3 h-3" />
                             Next-Gen AI Gateway Foundation
                         </motion.div>
-                        <h1 className="text-7xl md:text-9xl font-bold tracking-tighter mb-8 bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent leading-[0.9]">
+                        <h1 className="text-5xl md:text-9xl font-bold tracking-tighter mb-8 bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent leading-[0.9]">
                             KNULL <span className="text-white"></span>
                         </h1>
                         <p className="max-w-2xl mx-auto text-xl text-neutral-400 leading-relaxed mb-12">
@@ -370,10 +375,10 @@ export default function LandingPage() {
                             <ChevronDown className="w-5 h-5" />
                         </div>
                     </button>
-                </section >
+                </section>
 
                 {/* Creative Multi-Component Architecture Visualization */}
-                < section id="architecture" className="mt-32 relative py-32 overflow-visible" >
+                <section id="architecture" className="mt-32 relative py-32 overflow-visible">
                     {/* Background Glows */}
                     < div className="absolute inset-0 flex items-center justify-center pointer-events-none" >
                         <div className="w-[1200px] h-[800px] bg-accent-primary/10 blur-[200px] rounded-full" />
@@ -393,289 +398,355 @@ export default function LandingPage() {
                         </div>
 
                         {/* The Architecture Diagram */}
-                        <div className="relative w-full" style={{ height: '650px' }}>
+                        <div className="relative w-full">
 
-                            {/* SVG for all curved connections */}
-                            <svg
-                                className="absolute inset-0 w-full h-full"
-                                viewBox="0 0 1400 650"
-                                preserveAspectRatio="xMidYMid meet"
-                                style={{ overflow: 'visible' }}
-                            >
-                                <defs>
-                                    {/* Gradient for request flow */}
-                                    <linearGradient id="request-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.3" />
-                                        <stop offset="50%" stopColor="#8B5CF6" stopOpacity="1" />
-                                        <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
-                                    </linearGradient>
-
-                                    {/* Gradient for response flow */}
-                                    <linearGradient id="response-gradient" x1="100%" y1="0%" x2="0%" y2="0%">
-                                        <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
-                                        <stop offset="50%" stopColor="#10B981" stopOpacity="1" />
-                                        <stop offset="100%" stopColor="#6366F1" stopOpacity="0.3" />
-                                    </linearGradient>
-
-                                    {/* Arrow markers */}
-                                    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                                        <path d="M0,0 L0,10 L10,5 Z" fill="#8B5CF6" />
-                                    </marker>
-                                    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                                        <path d="M0,0 L0,10 L10,5 Z" fill="#10B981" />
-                                    </marker>
-                                    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                                        <path d="M0,0 L0,10 L10,5 Z" fill="#3B82F6" />
-                                    </marker>
-
-                                    {/* Glow filter */}
-                                    <filter id="glow-strong" x="-100%" y="-100%" width="300%" height="300%">
-                                        <feGaussianBlur stdDeviation="8" result="coloredBlur" />
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur" />
-                                            <feMergeNode in="SourceGraphic" />
-                                        </feMerge>
-                                    </filter>
-                                </defs>
-
-                                {/* === REQUEST FLOW (Purple/Blue) === */}
-
-                                {/* Client to Envoy - Curved paths */}
-                                <path d="M 180 120 Q 280 120, 350 200" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-purple)" />
-                                <path d="M 180 325 Q 280 325, 350 280" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-purple)" />
-                                <path d="M 180 530 Q 280 430, 350 360" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-purple)" />
-
-                                {/* Internal Knull Flow - Horizontal */}
-                                <path d="M 460 280 L 530 280" stroke="#6366F1" strokeWidth="2" fill="none" strokeOpacity="0.5" markerEnd="url(#arrow-blue)" />
-                                <path d="M 640 280 L 710 280" stroke="#6366F1" strokeWidth="2" fill="none" strokeOpacity="0.5" markerEnd="url(#arrow-blue)" />
-                                <path d="M 820 280 L 890 280" stroke="#6366F1" strokeWidth="2" fill="none" strokeOpacity="0.5" markerEnd="url(#arrow-blue)" />
-
-                                {/* Upstream to AI Models */}
-                                <path d="M 1000 200 Q 1100 120, 1220 120" stroke="#3B82F6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-blue)" />
-                                <path d="M 1000 280 Q 1100 280, 1220 325" stroke="#3B82F6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-blue)" />
-                                <path d="M 1000 360 Q 1100 430, 1220 530" stroke="#3B82F6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-blue)" />
-
-                                {/* === ANIMATED PARTICLES === */}
-
-                                {/* Request particles - Client to Envoy */}
-                                <circle r="6" fill="#8B5CF6" filter="url(#glow-strong)">
-                                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 180 120 Q 280 120, 350 200" />
-                                </circle>
-                                <circle r="6" fill="#8B5CF6" filter="url(#glow-strong)">
-                                    <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s" path="M 180 325 Q 280 325, 350 280" />
-                                </circle>
-                                <circle r="6" fill="#8B5CF6" filter="url(#glow-strong)">
-                                    <animateMotion dur="2.5s" repeatCount="indefinite" begin="1.6s" path="M 180 530 Q 280 430, 350 360" />
-                                </circle>
-
-                                {/* Internal flow particles */}
-                                <circle r="5" fill="#6366F1" filter="url(#glow-strong)">
-                                    <animateMotion dur="1s" repeatCount="indefinite" begin="0.5s" path="M 460 280 L 530 280" />
-                                </circle>
-                                <circle r="5" fill="#6366F1" filter="url(#glow-strong)">
-                                    <animateMotion dur="1s" repeatCount="indefinite" begin="1s" path="M 640 280 L 710 280" />
-                                </circle>
-                                <circle r="5" fill="#3B82F6" filter="url(#glow-strong)">
-                                    <animateMotion dur="1s" repeatCount="indefinite" begin="1.5s" path="M 820 280 L 890 280" />
-                                </circle>
-
-                                {/* Request particles - Upstream to Models */}
-                                <circle r="6" fill="#3B82F6" filter="url(#glow-strong)">
-                                    <animateMotion dur="2s" repeatCount="indefinite" begin="2s" path="M 1000 200 Q 1100 120, 1220 120" />
-                                </circle>
-                                <circle r="6" fill="#3B82F6" filter="url(#glow-strong)">
-                                    <animateMotion dur="2s" repeatCount="indefinite" begin="2.5s" path="M 1000 280 Q 1100 280, 1220 325" />
-                                </circle>
-                                <circle r="6" fill="#3B82F6" filter="url(#glow-strong)">
-                                    <animateMotion dur="2s" repeatCount="indefinite" begin="3s" path="M 1000 360 Q 1100 430, 1220 530" />
-                                </circle>
-
-                                {/* === RESPONSE FLOW (Green) - Dashed lines below === */}
-                                <path d="M 1220 150 Q 1100 200, 1030 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.3" markerEnd="url(#arrow-green)" />
-                                <path d="M 890 280 L 820 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.2" markerEnd="url(#arrow-green)" />
-                                <path d="M 710 280 L 640 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.2" markerEnd="url(#arrow-green)" />
-                                <path d="M 530 280 L 460 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.2" markerEnd="url(#arrow-green)" />
-                                <path d="M 350 280 Q 280 325, 180 325" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.3" markerEnd="url(#arrow-green)" />
-
-                                {/* Response flow particles */}
-                                <circle r="5" fill="#10B981" filter="url(#glow-strong)">
-                                    <animateMotion dur="2s" repeatCount="indefinite" begin="1s" path="M 1220 150 Q 1100 200, 1030 280" />
-                                </circle>
-                                <circle r="5" fill="#10B981" filter="url(#glow-strong)">
-                                    <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.5s" path="M 890 280 L 820 280" />
-                                </circle>
-                                <circle r="5" fill="#10B981" filter="url(#glow-strong)">
-                                    <animateMotion dur="1.5s" repeatCount="indefinite" begin="0s" path="M 710 280 L 640 280" />
-                                </circle>
-                                <circle r="5" fill="#10B981" filter="url(#glow-strong)">
-                                    <animateMotion dur="1s" repeatCount="indefinite" begin="1.5s" path="M 530 280 L 460 280" />
-                                </circle>
-                                <circle r="6" fill="#10B981" filter="url(#glow-strong)">
-                                    <animateMotion dur="2.5s" repeatCount="indefinite" begin="2s" path="M 350 280 Q 280 325, 180 325" />
-                                </circle>
-                            </svg>
-
-                            {/* Node Cards Layer */}
-                            <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 10 }}>
-
-                                {/* === LEFT: CLIENT SOURCES === */}
-                                <div className="absolute pointer-events-auto" style={{ left: '2%', top: '120px', transform: 'translateY(-50%)' }}>
-                                    <SourceNode icon={<Monitor className="w-5 h-5" />} label="Web App" sublabel="HTTP/REST" />
-                                </div>
-                                <div className="absolute pointer-events-auto" style={{ left: '2%', top: '325px', transform: 'translateY(-50%)' }}>
-                                    <SourceNode icon={<Terminal className="w-5 h-5" />} label="CLI / SDK" sublabel="OpenAI API" />
-                                </div>
-                                <div className="absolute pointer-events-auto" style={{ left: '2%', top: '530px', transform: 'translateY(-50%)' }}>
-                                    <SourceNode icon={<SmartphoneIcon />} label="Mobile" sublabel="gRPC" />
+                            {/* Mobile View: Vertical Flow */}
+                            <div className="md:hidden flex flex-col gap-8">
+                                {/* Clients */}
+                                <div className="space-y-4 flex flex-col items-center">
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-violet-400 mb-2 flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-violet-500" />
+                                        Request Sources
+                                    </div>
+                                    <div className="flex flex-col items-center gap-3 w-full">
+                                        <SourceNode icon={<Monitor className="w-5 h-5" />} label="Web App" sublabel="HTTP/REST" />
+                                        <SourceNode icon={<Terminal className="w-5 h-5" />} label="CLI / SDK" sublabel="OpenAI API" />
+                                        <SourceNode icon={<SmartphoneIcon />} label="Mobile" sublabel="gRPC" />
+                                    </div>
                                 </div>
 
-                                {/* === CENTER: KNULL CORE EXPANDED === */}
-                                <div className="absolute pointer-events-auto" style={{ left: '22%', top: '50%', transform: 'translateY(-50%)', width: '56%' }}>
-                                    <div className="relative">
-                                        {/* Outer Container - Glassmorphism */}
-                                        <div className="relative p-6 pb-4 rounded-[2rem] bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 backdrop-blur-xl shadow-[0_0_100px_rgba(139,92,246,0.15)]">
+                                {/* Connector */}
+                                <div className="flex justify-center">
+                                    <div className="w-px h-8 bg-gradient-to-b from-violet-500 to-indigo-500" />
+                                </div>
 
-                                            {/* Header */}
-                                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-black border border-accent-primary/50 text-sm font-black uppercase tracking-[0.3em] text-accent-primary shadow-xl flex items-center gap-2">
-                                                <div className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
-                                                KNULL CORE
-                                            </div>
+                                {/* Knull Core - Vertical Simplified */}
+                                <div className="p-6 rounded-[2rem] bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 backdrop-blur-xl relative">
+                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-black border border-accent-primary/50 text-[10px] font-black uppercase tracking-[0.2em] text-accent-primary whitespace-nowrap">
+                                        KNULL CORE
+                                    </div>
 
-                                            {/* REQUEST FLOW SECTION */}
-                                            <div className="mt-4 mb-3">
-                                                <div className="flex items-center gap-2 mb-3">
-                                                    <div className="w-2 h-2 rounded-full bg-violet-500" />
-                                                    <span className="text-[10px] font-bold uppercase tracking-wider text-violet-400">Request Pipeline</span>
-                                                    <div className="flex-1 h-px bg-gradient-to-r from-violet-500/30 to-transparent" />
-                                                </div>
+                                    <div className="space-y-6 mt-4">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <InternalComponent icon={<Server className="w-5 h-5" />} label="Envoy" sublabel="Parse" color="violet" badge="1" />
+                                            <InternalComponent icon={<Route className="w-5 h-5" />} label="Router" sublabel="Select" color="indigo" badge="2" />
+                                            <InternalComponent icon={<Key className="w-5 h-5" />} label="Auth" sublabel="Inject" color="blue" badge="3" />
+                                            <InternalComponent icon={<ArrowRightLeft className="w-5 h-5" />} label="Upstream" sublabel="Mutate" color="cyan" badge="4" />
+                                        </div>
 
-                                                {/* Internal Components with Flow Arrows */}
-                                                <div className="flex items-center justify-between gap-1">
-                                                    <InternalComponent
-                                                        icon={<Server className="w-5 h-5" />}
-                                                        label="Envoy"
-                                                        sublabel="Parse Request"
-                                                        color="violet"
-                                                        badge="1"
-                                                    />
-
-                                                    <FlowArrow color="violet" label="Route" />
-
-                                                    <InternalComponent
-                                                        icon={<Route className="w-5 h-5" />}
-                                                        label="Router Filter"
-                                                        sublabel="Select Model"
-                                                        color="indigo"
-                                                        badge="2"
-                                                    />
-
-                                                    <FlowArrow color="indigo" label="Auth" />
-
-                                                    <InternalComponent
-                                                        icon={<Key className="w-5 h-5" />}
-                                                        label="Backend Auth"
-                                                        sublabel="Inject API Key"
-                                                        color="blue"
-                                                        badge="3"
-                                                    />
-
-                                                    <FlowArrow color="blue" label="Transform" />
-
-                                                    <InternalComponent
-                                                        icon={<ArrowRightLeft className="w-5 h-5" />}
-                                                        label="Upstream"
-                                                        sublabel="Mutate Body"
-                                                        color="cyan"
-                                                        badge="4"
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            {/* RESPONSE FLOW SECTION */}
-                                            <div className="mt-3 mb-2">
-                                                <div className="flex items-center gap-2 mb-3">
-                                                    <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Response Pipeline</span>
-                                                    <div className="flex-1 h-px bg-gradient-to-r from-emerald-500/30 to-transparent" />
-                                                </div>
-
-                                                {/* Response Flow Steps */}
-                                                <div className="flex items-center justify-between gap-1">
-                                                    <ResponseStep
-                                                        icon={<ArrowRight className="w-4 h-4 rotate-180 text-emerald-300" />}
-                                                        label="Output"
-                                                        sublabel="Stream to Client"
-                                                    />
-
-                                                    <FlowArrow color="emerald" reverse label="Clean" />
-
-                                                    <ResponseStep
-                                                        icon={<Filter className="w-4 h-4" />}
-                                                        label="Headers"
-                                                        sublabel="Filter Response"
-                                                    />
-
-                                                    <FlowArrow color="emerald" reverse label="Store" />
-
-                                                    <ResponseStep
-                                                        icon={<Database className="w-4 h-4" />}
-                                                        label="Persist"
-                                                        sublabel="Audit Trail"
-                                                    />
-
-                                                    <FlowArrow color="emerald" reverse label="Stats" />
-
-                                                    <ResponseStep
-                                                        icon={<BarChart3 className="w-4 h-4" />}
-                                                        label="Metrics"
-                                                        sublabel="Model Latency"
-                                                    />
-                                                </div>
-                                            </div>
-
-                                            {/* Bottom Status */}
-                                            <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between">
-                                                <div className="flex items-center gap-1.5 text-[10px] text-neutral-500">
-                                                    <span className="text-accent-primary font-bold">Port 1975</span>
-                                                    <span>•</span>
-                                                    <span>ExtProc</span>
-                                                    <span>•</span>
-                                                    <span>SQLite</span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-accent-success animate-pulse" />
-                                                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent-success">Active</span>
-                                                </div>
-                                            </div>
+                                        <div className="pt-4 border-t border-white/5 grid grid-cols-2 gap-3">
+                                            <ResponseStep icon={<ArrowRight className="w-4 h-4 rotate-180" />} label="Output" sublabel="Stream" />
+                                            <ResponseStep icon={<Filter className="w-4 h-4" />} label="Headers" sublabel="Filter" />
+                                            <ResponseStep icon={<Database className="w-4 h-4" />} label="Persist" sublabel="Audit" />
+                                            <ResponseStep icon={<BarChart3 className="w-4 h-4" />} label="Metrics" sublabel="Stats" />
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* === RIGHT: AI MODEL BACKENDS === */}
-                                <div className="absolute pointer-events-auto" style={{ right: '2%', top: '120px', transform: 'translateY(-50%)' }}>
-                                    <ModelCard icon={<Sparkles className="w-5 h-5" />} label="GPT-4o" provider="OpenAI" color="amber" />
+                                {/* Connector */}
+                                <div className="flex justify-center">
+                                    <div className="w-px h-8 bg-gradient-to-b from-cyan-500 to-amber-500" />
                                 </div>
-                                <div className="absolute pointer-events-auto" style={{ right: '2%', top: '325px', transform: 'translateY(-50%)' }}>
-                                    <ModelCard icon={<Activity className="w-5 h-5" />} label="Claude 3.5" provider="Anthropic" color="emerald" />
-                                </div>
-                                <div className="absolute pointer-events-auto" style={{ right: '2%', top: '530px', transform: 'translateY(-50%)' }}>
-                                    <ModelCard icon={<Layers className="w-5 h-5" />} label="Gemini 1.5" provider="Google" color="blue" />
+
+                                {/* AI Models */}
+                                <div className="space-y-4 flex flex-col items-center">
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-amber-400 mb-2 flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                                        Intelligence Layer
+                                    </div>
+                                    <div className="flex flex-col items-center gap-3 w-full">
+                                        <ModelCard icon={<Sparkles className="w-5 h-5" />} label="GPT-4o" provider="OpenAI" color="amber" />
+                                        <ModelCard icon={<Activity className="w-5 h-5" />} label="Claude 3.5" provider="Anthropic" color="emerald" />
+                                        <ModelCard icon={<Layers className="w-5 h-5" />} label="Gemini 1.5" provider="Google" color="blue" />
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Legend */}
-                            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-8 text-xs text-neutral-400">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-8 h-0.5 bg-gradient-to-r from-violet-500 to-blue-500 rounded-full" />
-                                    <span>Request Flow</span>
+                            {/* Desktop View: Horizontal Diagram */}
+                            <div className="hidden md:block relative w-full" style={{ height: '650px' }}>
+
+                                {/* SVG for all curved connections */}
+                                <svg
+                                    className="absolute inset-0 w-full h-full"
+                                    viewBox="0 0 1400 650"
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={{ overflow: 'visible' }}
+                                >
+                                    <defs>
+                                        {/* Gradient for request flow */}
+                                        <linearGradient id="request-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.3" />
+                                            <stop offset="50%" stopColor="#8B5CF6" stopOpacity="1" />
+                                            <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
+                                        </linearGradient>
+
+                                        {/* Gradient for response flow */}
+                                        <linearGradient id="response-gradient" x1="100%" y1="0%" x2="0%" y2="0%">
+                                            <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
+                                            <stop offset="50%" stopColor="#10B981" stopOpacity="1" />
+                                            <stop offset="100%" stopColor="#6366F1" stopOpacity="0.3" />
+                                        </linearGradient>
+
+                                        {/* Arrow markers */}
+                                        <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                                            <path d="M0,0 L0,10 L10,5 Z" fill="#8B5CF6" />
+                                        </marker>
+                                        <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                                            <path d="M0,0 L0,10 L10,5 Z" fill="#10B981" />
+                                        </marker>
+                                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                                            <path d="M0,0 L0,10 L10,5 Z" fill="#3B82F6" />
+                                        </marker>
+
+                                        {/* Glow filter */}
+                                        <filter id="glow-strong" x="-100%" y="-100%" width="300%" height="300%">
+                                            <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+                                            <feMerge>
+                                                <feMergeNode in="coloredBlur" />
+                                                <feMergeNode in="SourceGraphic" />
+                                            </feMerge>
+                                        </filter>
+                                    </defs>
+
+                                    {/* === REQUEST FLOW (Purple/Blue) === */}
+
+                                    {/* Client to Envoy - Curved paths */}
+                                    <path d="M 180 120 Q 280 120, 350 200" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-purple)" />
+                                    <path d="M 180 325 Q 280 325, 350 280" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-purple)" />
+                                    <path d="M 180 530 Q 280 430, 350 360" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-purple)" />
+
+                                    {/* Internal Knull Flow - Horizontal */}
+                                    <path d="M 460 280 L 530 280" stroke="#6366F1" strokeWidth="2" fill="none" strokeOpacity="0.5" markerEnd="url(#arrow-blue)" />
+                                    <path d="M 640 280 L 710 280" stroke="#6366F1" strokeWidth="2" fill="none" strokeOpacity="0.5" markerEnd="url(#arrow-blue)" />
+                                    <path d="M 820 280 L 890 280" stroke="#6366F1" strokeWidth="2" fill="none" strokeOpacity="0.5" markerEnd="url(#arrow-blue)" />
+
+                                    {/* Upstream to AI Models */}
+                                    <path d="M 1000 200 Q 1100 120, 1220 120" stroke="#3B82F6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-blue)" />
+                                    <path d="M 1000 280 Q 1100 280, 1220 325" stroke="#3B82F6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-blue)" />
+                                    <path d="M 1000 360 Q 1100 430, 1220 530" stroke="#3B82F6" strokeWidth="2" fill="none" strokeOpacity="0.4" markerEnd="url(#arrow-blue)" />
+
+                                    {/* === ANIMATED PARTICLES === */}
+
+                                    {/* Request particles - Client to Envoy */}
+                                    <circle r="6" fill="#8B5CF6" filter="url(#glow-strong)">
+                                        <animateMotion dur="2.5s" repeatCount="indefinite" path="M 180 120 Q 280 120, 350 200" />
+                                    </circle>
+                                    <circle r="6" fill="#8B5CF6" filter="url(#glow-strong)">
+                                        <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s" path="M 180 325 Q 280 325, 350 280" />
+                                    </circle>
+                                    <circle r="6" fill="#8B5CF6" filter="url(#glow-strong)">
+                                        <animateMotion dur="2.5s" repeatCount="indefinite" begin="1.6s" path="M 180 530 Q 280 430, 350 360" />
+                                    </circle>
+
+                                    {/* Internal flow particles */}
+                                    <circle r="5" fill="#6366F1" filter="url(#glow-strong)">
+                                        <animateMotion dur="1s" repeatCount="indefinite" begin="0.5s" path="M 460 280 L 530 280" />
+                                    </circle>
+                                    <circle r="5" fill="#6366F1" filter="url(#glow-strong)">
+                                        <animateMotion dur="1s" repeatCount="indefinite" begin="1s" path="M 640 280 L 710 280" />
+                                    </circle>
+                                    <circle r="5" fill="#3B82F6" filter="url(#glow-strong)">
+                                        <animateMotion dur="1s" repeatCount="indefinite" begin="1.5s" path="M 820 280 L 890 280" />
+                                    </circle>
+
+                                    {/* Request particles - Upstream to Models */}
+                                    <circle r="6" fill="#3B82F6" filter="url(#glow-strong)">
+                                        <animateMotion dur="2s" repeatCount="indefinite" begin="2s" path="M 1000 200 Q 1100 120, 1220 120" />
+                                    </circle>
+                                    <circle r="6" fill="#3B82F6" filter="url(#glow-strong)">
+                                        <animateMotion dur="2s" repeatCount="indefinite" begin="2.5s" path="M 1000 280 Q 1100 280, 1220 325" />
+                                    </circle>
+                                    <circle r="6" fill="#3B82F6" filter="url(#glow-strong)">
+                                        <animateMotion dur="2s" repeatCount="indefinite" begin="3s" path="M 1000 360 Q 1100 430, 1220 530" />
+                                    </circle>
+
+                                    {/* === RESPONSE FLOW (Green) - Dashed lines below === */}
+                                    <path d="M 1220 150 Q 1100 200, 1030 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.3" markerEnd="url(#arrow-green)" />
+                                    <path d="M 890 280 L 820 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.2" markerEnd="url(#arrow-green)" />
+                                    <path d="M 710 280 L 640 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.2" markerEnd="url(#arrow-green)" />
+                                    <path d="M 530 280 L 460 280" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.2" markerEnd="url(#arrow-green)" />
+                                    <path d="M 350 280 Q 280 325, 180 325" stroke="#10B981" strokeWidth="1.5" strokeDasharray="6 4" fill="none" strokeOpacity="0.3" markerEnd="url(#arrow-green)" />
+
+                                    {/* Response flow particles */}
+                                    <circle r="5" fill="#10B981" filter="url(#glow-strong)">
+                                        <animateMotion dur="2s" repeatCount="indefinite" begin="1s" path="M 1220 150 Q 1100 200, 1030 280" />
+                                    </circle>
+                                    <circle r="5" fill="#10B981" filter="url(#glow-strong)">
+                                        <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.5s" path="M 890 280 L 820 280" />
+                                    </circle>
+                                    <circle r="5" fill="#10B981" filter="url(#glow-strong)">
+                                        <animateMotion dur="1.5s" repeatCount="indefinite" begin="0s" path="M 710 280 L 640 280" />
+                                    </circle>
+                                    <circle r="5" fill="#10B981" filter="url(#glow-strong)">
+                                        <animateMotion dur="1s" repeatCount="indefinite" begin="1.5s" path="M 530 280 L 460 280" />
+                                    </circle>
+                                    <circle r="6" fill="#10B981" filter="url(#glow-strong)">
+                                        <animateMotion dur="2.5s" repeatCount="indefinite" begin="2s" path="M 350 280 Q 280 325, 180 325" />
+                                    </circle>
+                                </svg>
+
+                                {/* Node Cards Layer */}
+                                <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 10 }}>
+
+                                    {/* === LEFT: CLIENT SOURCES === */}
+                                    <div className="absolute pointer-events-auto" style={{ left: '2%', top: '120px', transform: 'translateY(-50%)' }}>
+                                        <SourceNode icon={<Monitor className="w-5 h-5" />} label="Web App" sublabel="HTTP/REST" />
+                                    </div>
+                                    <div className="absolute pointer-events-auto" style={{ left: '2%', top: '325px', transform: 'translateY(-50%)' }}>
+                                        <SourceNode icon={<Terminal className="w-5 h-5" />} label="CLI / SDK" sublabel="OpenAI API" />
+                                    </div>
+                                    <div className="absolute pointer-events-auto" style={{ left: '2%', top: '530px', transform: 'translateY(-50%)' }}>
+                                        <SourceNode icon={<SmartphoneIcon />} label="Mobile" sublabel="gRPC" />
+                                    </div>
+
+                                    {/* === CENTER: KNULL CORE EXPANDED === */}
+                                    <div className="absolute pointer-events-auto" style={{ left: '22%', top: '50%', transform: 'translateY(-50%)', width: '56%' }}>
+                                        <div className="relative">
+                                            {/* Outer Container - Glassmorphism */}
+                                            <div className="relative p-6 pb-4 rounded-[2rem] bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 backdrop-blur-xl shadow-[0_0_100px_rgba(139,92,246,0.15)]">
+
+                                                {/* Header */}
+                                                <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-black border border-accent-primary/50 text-sm font-black uppercase tracking-[0.3em] text-accent-primary shadow-xl flex items-center gap-2">
+                                                    <div className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
+                                                    KNULL CORE
+                                                </div>
+
+                                                {/* REQUEST FLOW SECTION */}
+                                                <div className="mt-4 mb-3">
+                                                    <div className="flex items-center gap-2 mb-3">
+                                                        <div className="w-2 h-2 rounded-full bg-violet-500" />
+                                                        <span className="text-[10px] font-bold uppercase tracking-wider text-violet-400">Request Pipeline</span>
+                                                        <div className="flex-1 h-px bg-gradient-to-r from-violet-500/30 to-transparent" />
+                                                    </div>
+
+                                                    {/* Internal Components with Flow Arrows */}
+                                                    <div className="flex items-center justify-between gap-1">
+                                                        <InternalComponent
+                                                            icon={<Server className="w-5 h-5" />}
+                                                            label="Envoy"
+                                                            sublabel="Parse Request"
+                                                            color="violet"
+                                                            badge="1"
+                                                        />
+
+                                                        <FlowArrow color="violet" label="Route" />
+
+                                                        <InternalComponent
+                                                            icon={<Route className="w-5 h-5" />}
+                                                            label="Router Filter"
+                                                            sublabel="Select Model"
+                                                            color="indigo"
+                                                            badge="2"
+                                                        />
+
+                                                        <FlowArrow color="indigo" label="Auth" />
+
+                                                        <InternalComponent
+                                                            icon={<Key className="w-5 h-5" />}
+                                                            label="Backend Auth"
+                                                            sublabel="Inject API Key"
+                                                            color="blue"
+                                                            badge="3"
+                                                        />
+
+                                                        <FlowArrow color="blue" label="Transform" />
+
+                                                        <InternalComponent
+                                                            icon={<ArrowRightLeft className="w-5 h-5" />}
+                                                            label="Upstream"
+                                                            sublabel="Mutate Body"
+                                                            color="cyan"
+                                                            badge="4"
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                {/* RESPONSE FLOW SECTION */}
+                                                <div className="mt-3 mb-2">
+                                                    <div className="flex items-center gap-2 mb-3">
+                                                        <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                                                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Response Pipeline</span>
+                                                        <div className="flex-1 h-px bg-gradient-to-r from-emerald-500/30 to-transparent" />
+                                                    </div>
+
+                                                    {/* Response Flow Steps */}
+                                                    <div className="flex items-center justify-between gap-1">
+                                                        <ResponseStep
+                                                            icon={<ArrowRight className="w-4 h-4 rotate-180 text-emerald-300" />}
+                                                            label="Output"
+                                                            sublabel="Stream to Client"
+                                                        />
+
+                                                        <FlowArrow color="emerald" reverse label="Clean" />
+
+                                                        <ResponseStep
+                                                            icon={<Filter className="w-4 h-4" />}
+                                                            label="Headers"
+                                                            sublabel="Filter Response"
+                                                        />
+
+                                                        <FlowArrow color="emerald" reverse label="Store" />
+
+                                                        <ResponseStep
+                                                            icon={<Database className="w-4 h-4" />}
+                                                            label="Persist"
+                                                            sublabel="Audit Trail"
+                                                        />
+
+                                                        <FlowArrow color="emerald" reverse label="Stats" />
+
+                                                        <ResponseStep
+                                                            icon={<BarChart3 className="w-4 h-4" />}
+                                                            label="Metrics"
+                                                            sublabel="Model Latency"
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                {/* Bottom Status */}
+                                                <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between">
+                                                    <div className="flex items-center gap-1.5 text-[10px] text-neutral-500">
+                                                        <span className="text-accent-primary font-bold">Port 1975</span>
+                                                        <span>•</span>
+                                                        <span>ExtProc</span>
+                                                        <span>•</span>
+                                                        <span>SQLite</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-accent-success animate-pulse" />
+                                                        <span className="text-[10px] font-bold uppercase tracking-wider text-accent-success">Active</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* === RIGHT: AI MODEL BACKENDS === */}
+                                    <div className="absolute pointer-events-auto" style={{ right: '2%', top: '120px', transform: 'translateY(-50%)' }}>
+                                        <ModelCard icon={<Sparkles className="w-5 h-5" />} label="GPT-4o" provider="OpenAI" color="amber" />
+                                    </div>
+                                    <div className="absolute pointer-events-auto" style={{ right: '2%', top: '325px', transform: 'translateY(-50%)' }}>
+                                        <ModelCard icon={<Activity className="w-5 h-5" />} label="Claude 3.5" provider="Anthropic" color="emerald" />
+                                    </div>
+                                    <div className="absolute pointer-events-auto" style={{ right: '2%', top: '530px', transform: 'translateY(-50%)' }}>
+                                        <ModelCard icon={<Layers className="w-5 h-5" />} label="Gemini 1.5" provider="Google" color="blue" />
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-8 h-0.5 bg-accent-success rounded-full opacity-50" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #10B981 0, #10B981 6px, transparent 6px, transparent 10px)' }} />
-                                    <span>Response Flow</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-3 h-3 rounded-full bg-violet-500 shadow-lg shadow-violet-500/50" />
-                                    <span>Data Packet</span>
+
+                                {/* Legend */}
+                                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-8 text-xs text-neutral-400">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-8 h-0.5 bg-gradient-to-r from-violet-500 to-blue-500 rounded-full" />
+                                        <span>Request Flow</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-8 h-0.5 bg-accent-success rounded-full opacity-50" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #10B981 0, #10B981 6px, transparent 6px, transparent 10px)' }} />
+                                        <span>Response Flow</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-3 h-3 rounded-full bg-violet-500 shadow-lg shadow-violet-500/50" />
+                                        <span>Data Packet</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

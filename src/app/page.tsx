@@ -106,7 +106,9 @@ export default function LandingPage() {
 
 
                 {/* Canvas Star Dust Effect */}
-                <StarDustCanvas />
+                <div className="hidden md:block">
+                    <StarDustCanvas />
+                </div>
             </div>
 
             {/* Premium Navigation */}
@@ -149,7 +151,7 @@ export default function LandingPage() {
                 <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
                     {/* Aurora Restricted to Hero */}
                     <motion.div
-                        className="hidden md:block absolute inset-0 z-0 pointer-events-none"
+                        className="absolute inset-0 z-0 pointer-events-none"
                         style={{ opacity: scrollOpacity }}
                     >
                         <motion.div

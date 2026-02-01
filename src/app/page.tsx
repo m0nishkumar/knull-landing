@@ -106,9 +106,7 @@ export default function LandingPage() {
 
 
                 {/* Canvas Star Dust Effect */}
-                <div className="hidden md:block">
-                    <StarDustCanvas />
-                </div>
+                <StarDustCanvas />
             </div>
 
             {/* Premium Navigation */}
@@ -172,8 +170,8 @@ export default function LandingPage() {
                                 <div className="scale-[0.45] md:scale-100 origin-center transition-transform duration-500">
                                     <div className="relative w-[800px] h-[800px] transform-3d" style={{ transform: 'perspective(1000px) rotateX(60deg) scale(0.8)' }}>
 
-                                        {/* Ring System */}
-                                        <div className="absolute inset-0 flex items-center justify-center transform-3d transform-gpu">
+                                        {/* Ring System - Hidden on Mobile */}
+                                        <div className="hidden md:flex absolute inset-0 items-center justify-center transform-3d transform-gpu">
                                             {/* Outer Mechanical Ring - Clockwise */}
                                             <div className="absolute w-[950px] h-[950px] rounded-full border-[3px] border-dashed border-blue-500/40 animate-spin-slow shadow-[0_0_100px_rgba(59,130,246,0.3)]" style={{ animationDuration: '30s' }} />
                                             <div className="absolute w-[930px] h-[930px] rounded-full border-[2px] border-blue-500/20 animate-spin-slow" style={{ animationDuration: '30s' }} />

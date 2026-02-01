@@ -136,9 +136,6 @@ export default function LandingPage() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <Link href="/auth/login" className="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm font-bold hover:bg-white/10 hover:border-white/20 transition-all active:scale-95">
-                            Sign In
-                        </Link>
                         <Link href="/playground" className="px-5 py-2.5 rounded-xl bg-accent-primary text-white text-sm font-bold shadow-lg shadow-accent-primary/20 hover:bg-accent-primary/90 transition-all active:scale-95 flex items-center gap-2 group">
                             Get Started
                             <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -152,7 +149,7 @@ export default function LandingPage() {
                 <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
                     {/* Aurora Restricted to Hero */}
                     <motion.div
-                        className="absolute inset-0 z-0 pointer-events-none"
+                        className="hidden md:block absolute inset-0 z-0 pointer-events-none"
                         style={{ opacity: scrollOpacity }}
                     >
                         <motion.div
